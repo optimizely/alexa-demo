@@ -2,28 +2,11 @@
 
 const optimizelySDK = require('@optimizely/optimizely-sdk'),
       defaultLogger = require('@optimizely/optimizely-sdk/lib/plugins/logger'),
-           dataFile = {"version": "4", "rollouts": [{"experiments": [{"status": "Not started", "key": "10673962079", "layerId": "10678700998", "trafficAllocation": [{"entityId": "10682510591", "endOfRange": 0 } ], "audienceIds": [], "variations": [{"variables": [], "id": "10682510591", "key": "10682510591", "featureEnabled": false } ], "forcedVariations": {}, "id": "10673962079"} ], "id": "10678700998"} ], "anonymizeIP": true, "projectId": "10683461849", "variables": [], "featureFlags": [{"experimentIds": ["10683770620"], "rolloutId": "10678700998", "variables": [{"defaultValue": "1000", "type": "integer", "id": "10673080993", "key": "priceCeiling"}, {"defaultValue": "tv", "type": "string", "id": "10678280658", "key": "category"}, {"defaultValue": "Here's your daily deal!", "type": "string", "id": "10680340843", "key": "dealResponse"} ], "id": "10685231285", "key": "dailyDealSkill"} ], "experiments": [{"status": "Running", "key": "dailyDealSkill_test", "layerId": "10677330777", "trafficAllocation": [{"entityId": "10675900974", "endOfRange": 2000 }, {"entityId": "10678330521", "endOfRange": 4000 }, {"entityId": "10678691194", "endOfRange": 6000 }, {"entityId": "10680500866", "endOfRange": 8000 }, {"entityId": "10684351053", "endOfRange": 10000 } ], "audienceIds": [], "variations": [{"variables": [{"id": "10680340843", "value": "For a very limited time Save  $270 on a Sony 50 inch 4k LED TV with a final price of $429.99. Want to learn more?"}, {"id": "10678280658", "value": "tv"}, {"id": "10673080993", "value": "1000"} ], "id": "10684351053", "key": "tv", "featureEnabled": true }, {"variables": [{"id": "10680340843", "value": "Get a PS4 Star Wars Battlefront 2 edition for $269, and save $30 off the retail price. Want to learn more?"}, {"id": "10678280658", "value": "gaming"}, {"id": "10673080993", "value": "1000"} ], "id": "10680500866", "key": "gaming", "featureEnabled": true }, {"variables": [{"id": "10680340843", "value": "50% off Master and Dynamic on ear headphones! Sale ends tomorrow, want to learn more?"}, {"id": "10678280658", "value": "headphone"}, {"id": "10673080993", "value": "1000"} ], "id": "10678330521", "key": "headphones", "featureEnabled": true }, {"variables": [{"id": "10680340843", "value": "Rise and shine with $10 off Mr. Coffee 4 cup programmable coffeemaker for only $14.99. Want to learn more?"}, {"id": "10678280658", "value": "appliance"}, {"id": "10673080993", "value": "1000"} ], "id": "10675900974", "key": "appliance", "featureEnabled": true }, {"variables": [{"id": "10680340843", "value": "Save $30 with on the latest Fitbit charge 2 activity tracker, and get moving for $119. Want to learn more?"}, {"id": "10678280658", "value": "fitness"}, {"id": "10673080993", "value": "1000"} ], "id": "10678691194", "key": "fitness", "featureEnabled": true } ], "forcedVariations": {}, "id": "10683770620"} ], "audiences": [], "groups": [], "attributes": [], "accountId": "8177152216", "events": [{"experimentIds": ["10683770620"], "id": "10680920316", "key": "respondedYes"}, {"experimentIds": ["10683770620"], "id": "10681750993", "key": "viewedProduct"}, {"experimentIds": ["10683770620"], "id": "10685341248", "key": "respondedNo"} ], "revision": "7"},
+           dataFile = {"version": "4", "rollouts": [{"experiments": [{"status": "Not started", "key": "10826731225", "layerId": "10802195136", "trafficAllocation": [{"entityId": "10827941281", "endOfRange": 0 } ], "audienceIds": [], "variations": [{"variables": [], "id": "10827941281", "key": "10827941281", "featureEnabled": false } ], "forcedVariations": {}, "id": "10826731225"} ], "id": "10802195136"} ], "anonymizeIP": false, "projectId": "10804205657", "variables": [], "featureFlags": [{"experimentIds": ["10799256266"], "rolloutId": "10802195136", "variables": [{"defaultValue": "forex", "type": "string", "id": "10792846226", "key": "category"}, {"defaultValue": "Default response from Alexa skill", "type": "string", "id": "10799256241", "key": "response"} ], "id": "10813044048", "key": "inspirationAlexaSkill"} ], "experiments": [{"status": "Running", "key": "alexaSkill", "layerId": "10795615136", "trafficAllocation": [{"entityId": "10795846264", "endOfRange": 2000 }, {"entityId": "10797074292", "endOfRange": 4000 }, {"entityId": "10801826758", "endOfRange": 6000 }, {"entityId": "10828821070", "endOfRange": 8000 }, {"entityId": "10831651291", "endOfRange": 10000 } ], "audienceIds": [], "variations": [{"variables": [{"id": "10799256241", "value": "It’s summer and it’s 2018 which means that the FIFA World Cup is here. This battle for glory by national football teams from around the globe is mirrored by the battle fought by countries on electronic exchanges as they compete for global investors. Want to learn more?"}, {"id": "10792846226", "value": "games"} ], "id": "10797074292", "key": "variation_1", "featureEnabled": true }, {"variables": [{"id": "10799256241", "value": "Crypto Update: Rising in the East. This week the entire crypto market cap rose 4% to over $340 billion. Want to learn more?"}, {"id": "10792846226", "value": "crypto"} ], "id": "10831651291", "key": "variation_2", "featureEnabled": true }, {"variables": [{"id": "10799256241", "value": "Oil caught in a flood of conflicting news. WTI Crude oil, down 10% from its recent peak, with Venezuela's output is in free fall; the US has asked Saudi Arabia and others to raise production. Want to learn more?"}, {"id": "10792846226", "value": "commoditites"} ], "id": "10795846264", "key": "variation_3", "featureEnabled": true }, {"variables": [{"id": "10799256241", "value": "Euro focus more on ECB than Italy. Estimates suggest that a full implementation of the populist programme of flat taxes, a universal basic income, and other measures could cost some 4-5% of GDP and therefore put Italy in massive violation of the EU’s budget deficit rules. Want to learn more?"}, {"id": "10792846226", "value": "forex"} ], "id": "10828821070", "key": "variation_4", "featureEnabled": true }, {"variables": [{"id": "10799256241", "value": "Kay Van-Petersen, Global Macro Strategist suggests shorting silver on the Jun13 Fed hike meeting. Want to learn more?"}, {"id": "10792846226", "value": "tradeView"} ], "id": "10801826758", "key": "variation_5", "featureEnabled": true } ], "forcedVariations": {}, "id": "10799256266"} ], "audiences": [], "groups": [], "attributes": [], "botFiltering": false, "accountId": "1893931342", "events": [{"experimentIds": ["10799256266"], "id": "10793974956", "key": "respondedNo"}, {"experimentIds": ["10799256266"], "id": "10796886114", "key": "respondedYes"} ], "revision": "5"},
               Alexa = require('ask-sdk');
 
 // Initialize Optimizely client
 let optimizely = optimizelySDK.createInstance({ datafile: dataFile, logger: defaultLogger.createLogger({ logLevel: 1 })});
-
-let accountSid = 'top secret';
-let authToken = 'top secret';
-
-// Initialize Twilio client
-const client = require('twilio')(accountSid, authToken);
-
-// Hard coded array of numbers to send texts to
-let numbers = ['+16178754788', '+19259181897'];
-
-let products = {
-  'tv': { link: 'https://www.bestbuy.com/site/sony-50-class-led-x690e-series-2160p-smart-4k-uhd-tv-with-hdr/5947110.p?skuId=5947110'},
-  'gaming':{ link: 'https://www.bestbuy.com/site/sony-playstation-4-1tb-star-wars-battlefront-ii-console-bundle-jet-black/6139532.p?skuId=6139532'},
-  'headphone':{link: 'https://www.bestbuy.com/site/master-dynamic-mh30-on-ear-headphones-gunmetal-black-leather/5863100.p?skuId=5863100'},
-  'fitness':{ link: 'https://www.bestbuy.com/site/mr-coffee-4-cup-programmable-coffeemaker-black/8524947.p?skuId=8524947'},
-  'appliance':{ link: 'https://www.bestbuy.com/site/fitbit-charge-2-activity-tracker-heart-rate-large-black-silver/5579211.p?skuId=5579211'}
-}
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -45,7 +28,7 @@ const DailyDealHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'DailyDeal';
   },
   handle(handlerInput) {
-    let speechText = 'Well, this is awkward, there aren\'t any deals today';
+    let speechText = 'Well, this is awkward, there aren\'t any insights today';
 
     // Set the userId as the session ID from the Alexa Skill
     let userId = handlerInput.requestEnvelope.session.sessionId;
@@ -56,32 +39,8 @@ const DailyDealHandler = {
       console.log('User confirmed intent');
 
       // Response when a user accepts the 
-      speechText = "Great, I'll text you the link";
+      speechText = "Excellent! I'll send you the full article.";
       optimizely.track('respondedYes', userId);
-
-      let category = optimizely.getFeatureVariableString('dailyDealSkill', 'category', userId);
-      let message = "Here's the link to today's daily deal - Alexa";
-
-      // Loop through numbers and send sms messages
-      for(var i=0; i<numbers.length; i++){
-        console.log('Sending messages to: ', numbers[i]);
-
-        client.messages
-          .create({
-             body: message,
-             from: '+14157022765',
-             to: numbers[i]
-           })
-          .then(message => console.log(message.sid));
-
-        client.messages
-          .create({
-             body: products[category].link + "&alexaId=" + userId,
-             from: '+14157022765',
-             to: numbers[i]
-           })
-          .then(message => console.log(message.sid));
-      }
 
       return handlerInput.responseBuilder
         .speak(speechText)
@@ -107,14 +66,13 @@ const DailyDealHandler = {
     } else {
 
       // Access feature flag and feture variables from Optimizely
-      let enabled = optimizely.isFeatureEnabled('dailyDealSkill', userId);
-      let priceCeiling = optimizely.getFeatureVariableInteger('dailyDealSkill', 'priceCeiling', userId);
-      let category = optimizely.getFeatureVariableString('dailyDealSkill', 'category', userId);
-      let dealResponse = optimizely.getFeatureVariableString('dailyDealSkill', 'dealResponse', userId);
+      var enabled = optimizely.isFeatureEnabled('inspirationAlexaSkill', userId);
+      var category = optimizely.getFeatureVariableString('inspirationAlexaSkill', 'category', userId);
+      var response = optimizely.getFeatureVariableString('inspirationAlexaSkill', 'response', userId);
       
       // If the feature is enabled, give them one of the feature variables
       if(enabled){
-        speechText = dealResponse;
+        speechText = response;
       }
 
       console.log('FEATURE ENABLED? ', enabled);
