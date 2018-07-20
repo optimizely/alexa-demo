@@ -2,11 +2,16 @@
 
 const optimizelySDK = require('@optimizely/optimizely-sdk'),
       defaultLogger = require('@optimizely/optimizely-sdk/lib/plugins/logger'),
-           dataFile = {"version": "4", "rollouts": [{"experiments": [{"status": "Not started", "key": "10826731225", "layerId": "10802195136", "trafficAllocation": [{"entityId": "10827941281", "endOfRange": 0 } ], "audienceIds": [], "variations": [{"variables": [], "id": "10827941281", "key": "10827941281", "featureEnabled": false } ], "forcedVariations": {}, "id": "10826731225"} ], "id": "10802195136"} ], "anonymizeIP": false, "projectId": "10804205657", "variables": [], "featureFlags": [{"experimentIds": ["10799256266"], "rolloutId": "10802195136", "variables": [{"defaultValue": "forex", "type": "string", "id": "10792846226", "key": "category"}, {"defaultValue": "Default response from Alexa skill", "type": "string", "id": "10799256241", "key": "response"} ], "id": "10813044048", "key": "inspirationAlexaSkill"} ], "experiments": [{"status": "Running", "key": "alexaSkill", "layerId": "10795615136", "trafficAllocation": [{"entityId": "10795846264", "endOfRange": 2000 }, {"entityId": "10797074292", "endOfRange": 4000 }, {"entityId": "10801826758", "endOfRange": 6000 }, {"entityId": "10828821070", "endOfRange": 8000 }, {"entityId": "10831651291", "endOfRange": 10000 } ], "audienceIds": [], "variations": [{"variables": [{"id": "10799256241", "value": "It’s summer and it’s 2018 which means that the FIFA World Cup is here. This battle for glory by national football teams from around the globe is mirrored by the battle fought by countries on electronic exchanges as they compete for global investors. Want to learn more?"}, {"id": "10792846226", "value": "games"} ], "id": "10797074292", "key": "variation_1", "featureEnabled": true }, {"variables": [{"id": "10799256241", "value": "Crypto Update: Rising in the East. This week the entire crypto market cap rose 4% to over $340 billion. Want to learn more?"}, {"id": "10792846226", "value": "crypto"} ], "id": "10831651291", "key": "variation_2", "featureEnabled": true }, {"variables": [{"id": "10799256241", "value": "Oil caught in a flood of conflicting news. WTI Crude oil, down 10% from its recent peak, with Venezuela's output is in free fall; the US has asked Saudi Arabia and others to raise production. Want to learn more?"}, {"id": "10792846226", "value": "commoditites"} ], "id": "10795846264", "key": "variation_3", "featureEnabled": true }, {"variables": [{"id": "10799256241", "value": "Euro focus more on ECB than Italy. Estimates suggest that a full implementation of the populist programme of flat taxes, a universal basic income, and other measures could cost some 4-5% of GDP and therefore put Italy in massive violation of the EU’s budget deficit rules. Want to learn more?"}, {"id": "10792846226", "value": "forex"} ], "id": "10828821070", "key": "variation_4", "featureEnabled": true }, {"variables": [{"id": "10799256241", "value": "Kay Van-Petersen, Global Macro Strategist suggests shorting silver on the Jun13 Fed hike meeting. Want to learn more?"}, {"id": "10792846226", "value": "tradeView"} ], "id": "10801826758", "key": "variation_5", "featureEnabled": true } ], "forcedVariations": {}, "id": "10799256266"} ], "audiences": [], "groups": [], "attributes": [], "botFiltering": false, "accountId": "1893931342", "events": [{"experimentIds": ["10799256266"], "id": "10793974956", "key": "respondedNo"}, {"experimentIds": ["10799256266"], "id": "10796886114", "key": "respondedYes"} ], "revision": "5"},
+           dataFile = {"version": "4", "rollouts": [{"experiments": [{"status": "Not started", "key": "10962361102", "layerId": "10956230699", "trafficAllocation": [{"entityId": "10955220954", "endOfRange": 0}], "audienceIds": [], "variations": [{"variables": [], "id": "10955220954", "key": "10955220954", "featureEnabled": false}], "forcedVariations": {}, "id": "10962361102"}], "id": "10956230699"}], "anonymizeIP": true, "projectId": "10931961385", "variables": [], "featureFlags": [{"experimentIds": ["10918050455"], "rolloutId": "10956230699", "variables": [{"defaultValue": "hi this is a response", "type": "string", "id": "10939900461", "key": "response"}, {"defaultValue": "denim", "type": "string", "id": "10955431073", "key": "category"}], "id": "10943720961", "key": "inspirationAlexaSkill"}], "experiments": [{"status": "Not started", "key": "PRICE_SENSITIVITY_TEST", "layerId": "10972150451", "trafficAllocation": [{"entityId": "10931910578", "endOfRange": 5000}, {"entityId": "10955290433", "endOfRange": 10000}], "audienceIds": [], "variations": [{"variables": [], "id": "10955290433", "key": "regular_shopper"}, {"variables": [], "id": "10931910578", "key": "price_sensitive"}], "forcedVariations": {}, "id": "10918041183"}, {"status": "Running", "key": "inspirationAlexaSkill_test", "layerId": "10944080934", "trafficAllocation": [{"entityId": "10930090987", "endOfRange": 2000}, {"entityId": "10939920989", "endOfRange": 4000}, {"entityId": "10949471062", "endOfRange": 6000}, {"entityId": "10956271090", "endOfRange": 8000}, {"entityId": "10964240695", "endOfRange": 10000}], "audienceIds": [], "variations": [{"variables": [{"id": "10955431073", "value": "bootcut"}, {"id": "10939900461", "value": "Thoughts on boot cut? Want to learn more about this fit?"}], "id": "10939920989", "key": "variation_1", "featureEnabled": true}, {"variables": [{"id": "10955431073", "value": "skinny"}, {"id": "10939900461", "value": "Do you like your jeans skinny? We've got skinny jeans I know you'll love. Want to learn more about this fit?"}], "id": "10964240695", "key": "variation_2", "featureEnabled": true}, {"variables": [{"id": "10955431073", "value": "straight"}, {"id": "10939900461", "value": "Straight jeans are the perfect weekend cut with room to move, yet not to loose. Want to learn more about this fit?"}], "id": "10949471062", "key": "variation_3", "featureEnabled": true}, {"variables": [{"id": "10955431073", "value": "slim"}, {"id": "10939900461", "value": "In between skinny and straight, our slim jeans are some of the most popular. Want to learn more about this fit?"}], "id": "10956271090", "key": "variation_4", "featureEnabled": true}, {"variables": [{"id": "10955431073", "value": "relaxed"}, {"id": "10939900461", "value": "For the most relaxed look, may I recommend our relaxed fit. Want to learn more about this fit?"}], "id": "10930090987", "key": "variation_5", "featureEnabled": true}], "forcedVariations": {}, "id": "10918050455"}, {"status": "Not started", "key": "SORTING_ALGORITHM_EXPERIMENT", "layerId": "10948080503", "trafficAllocation": [{"entityId": "10962150817", "endOfRange": 5000}, {"entityId": "10962270995", "endOfRange": 10000}], "audienceIds": [], "variations": [{"variables": [], "id": "10962150817", "key": "POPULARITY_SORT"}, {"variables": [], "id": "10962270995", "key": "SORT_BY_PRICE"}], "forcedVariations": {}, "id": "10939840734"}, {"status": "Not started", "key": "WISH_LIST_FEATURE_ROLLOUT", "layerId": "10976790156", "trafficAllocation": [{"entityId": "10948030670", "endOfRange": 5000}, {"entityId": "10970220465", "endOfRange": 10000}], "audienceIds": [], "variations": [{"variables": [], "id": "10948030670", "key": "NO_WISH_LIST_FEATURE"}, {"variables": [], "id": "10970220465", "key": "SHOW_WISH_LIST"}], "forcedVariations": {}, "id": "10943790539"}], "audiences": [], "groups": [], "attributes": [], "botFiltering": false, "accountId": "8785893177", "events": [{"experimentIds": ["10918050455"], "id": "10929960439", "key": "respondedYes"}, {"experimentIds": ["10918050455"], "id": "10931920312", "key": "respondedNo"}, {"experimentIds": [], "id": "10941930970", "key": "COMPLETED_PURCHASE"}, {"experimentIds": [], "id": "10972170748", "key": "ADD_TO_CART"}], "revision": "9"},
+                 rp = require('request-promise'),
               Alexa = require('ask-sdk');
 
 // Initialize Optimizely client
 let optimizely = optimizelySDK.createInstance({ datafile: dataFile, logger: defaultLogger.createLogger({ logLevel: 1 })});
+
+// Optional, change the responses when a user confirms or denies your request
+let confirmationResponse = "Great! I'll send you more information",
+    deniedResponse = "Ok, next time we'll find you the perfect fit";
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -17,29 +22,30 @@ const LaunchRequestHandler = {
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .reprompt(speechOutput)
-      .withSimpleCard('Hello World', speechOutput)
       .getResponse();
   }
 };
 
-const DailyDealHandler = {
+const OptimizelyDemoHandler = {
+
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && handlerInput.requestEnvelope.request.intent.name === 'DailyDeal';
+      && handlerInput.requestEnvelope.request.intent.name === 'OptimizelyDemo';
   },
+
   handle(handlerInput) {
-    let speechText = 'Well, this is awkward, there aren\'t any insights today';
+    let speechText = 'Well, this is awkward I don\'t have anything to say';
 
     // Set the userId as the session ID from the Alexa Skill
     let userId = handlerInput.requestEnvelope.session.sessionId;
-    console.log('USER ID aka session id = ', userId);
 
     // Check to see the status of the intent
     if(handlerInput.requestEnvelope.request.intent.confirmationStatus === "CONFIRMED"){
-      console.log('User confirmed intent');
-
-      // Response when a user accepts the 
-      speechText = "Excellent! I'll send you the full article.";
+      var category = optimizely.getFeatureVariableString('inspirationAlexaSkill', 'category', userId);
+      // Response when a user accepts the intent
+      speechText = confirmationResponse + ' on the ' + category + ' fit';
+      
+      // Track the dialog response in Optimizely
       optimizely.track('respondedYes', userId);
 
       return handlerInput.responseBuilder
@@ -53,7 +59,7 @@ const DailyDealHandler = {
     else if (handlerInput.requestEnvelope.request.intent.confirmationStatus === "DENIED") {
       
       // Response when the user rejects the prompt
-      speechText = "Ok, no problem"
+      speechText = deniedResponse;
 
       // Track event that the user rejected the recommendation
       optimizely.track('respondedNo', userId);
@@ -75,12 +81,8 @@ const DailyDealHandler = {
         speechText = response;
       }
 
-      console.log('FEATURE ENABLED? ', enabled);
-      console.log('CATEGORY ', category);
-
       return handlerInput.responseBuilder
         .speak(speechText)
-        .withSimpleCard('Deal of the day', speechText)
         .addConfirmIntentDirective(handlerInput.requestEnvelope.request.intent)
         .getResponse();      
     }
@@ -134,7 +136,7 @@ let skill;
 
 exports.handler = Alexa.SkillBuilders.custom()
    .addRequestHandlers(LaunchRequestHandler,
-                       DailyDealHandler,
+                       OptimizelyDemoHandler,
                        HelpIntentHandler,
                        CancelAndStopIntentHandler,
                        SessionEndedRequestHandler)
