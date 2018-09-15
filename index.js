@@ -1,5 +1,4 @@
 'use strict';
-
 const optimizelySDK = require('@optimizely/optimizely-sdk'),
       defaultLogger = require('@optimizely/optimizely-sdk/lib/plugins/logger'),
               Alexa = require('ask-sdk'),
@@ -7,38 +6,56 @@ const optimizelySDK = require('@optimizely/optimizely-sdk'),
 
 // Setup undefined Optimizlely object
 // We'll define this later, and will be temporarily cached by Amazon
-let optimizely;
+let optimizelyClientInstance;
 
 // Function to get datafile and initialize Optimizely client
-
 let initOptimizely = (projectID) => {
-  
+
+  // Options to get the datafile via CDN
   let options = {
-    uri: `https://www.optimizelyapis.com/experiment/v1/projects/${projectID}/json`,
-    headers: {
-        'Authorization': 'Bearer ' + process.env.OPTIMIZELY_TOKEN
-    },
+    uri: `https://cdn.optimizely.com/json/${projectID}.json`,
     json: true
-  };
+  }
+  
+  console.log('Initializing Optimizely Client');
+
+  // Options to get the datafile via REST api
+  // let options = {
+  //     uri: `https://www.optimizelyapis.com/experiment/v1/projects/${projectID}/json`,
+  //   headers: {
+  //       'Authorization': 'Bearer ' + process.env.OPTIMIZELY_TOKEN
+  //   },
+  //   json: true
+  // };
+
+  // Returns promise to make GET request to Optimizely API
   return rp(options)
     .then( (datafile) => {
       console.log('Grabbed Datafile from REST API');
-      optimizely = optimizelySDK.createInstance({ datafile: datafile, logger: defaultLogger.createLogger({ logLevel: 1 })})
+      console.log(datafile);
+      optimizelyClientInstance = optimizelySDK.createInstance(
+        { 
+          datafile: datafile, 
+          logger: defaultLogger.createLogger({ logLevel: 1 })
+        }
+      )
     })
     .catch( (err) => {
       console.log('There was an error: ', err);
     })
 };
 
+// Here are the responses we'll give when a user either accepts or denies our confirmation
 let confirmationResponse = "Great! I'll send you more information",
     deniedResponse = "Ok, maybe next time";
 
+// 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    var speechOutput = "Welcome to the worlds #1 store for your lil pupper";
+    let speechOutput = "Welcome to the worlds #1 store for your lil pupper at Opticon. Looking for a deal? Just ask for the daily deal!";
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .reprompt(speechOutput)
@@ -47,7 +64,6 @@ const LaunchRequestHandler = {
 };
 
 // Alexa intent where we're going to test our responses!
-
 const OptimizelyDemoHandler = {
 
   canHandle(handlerInput) {
@@ -58,29 +74,34 @@ const OptimizelyDemoHandler = {
   // Use async incase we need to get a new datafile!
   async handle(handlerInput) {
 
-    let speechText = 'Well, this is awkward I don\'t have anything to say';
-    let status = handlerInput.requestEnvelope.request.intent.confirmationStatus;
-
     // Set the userId as the session ID from the Alexa Skill
     // This will get a new user ID on each session - alternatively use deviceId
     let userId = handlerInput.requestEnvelope.session.sessionId;
+
+    let speechText = 'Well, this is awkward I don\'t have anything to say';
+    let status = handlerInput.requestEnvelope.request.intent.confirmationStatus;
 
     // Check to see the status of the intent
     if( status === "NONE"){
 
       // Check to see if Optimizely Client exists...
       // If it doesn't we'll make a request to the REST api (most up to date), and init the client
-      if(!optimizely){
+      if(!optimizelyClientInstance){
         await initOptimizely(process.env.PROJECT_ID);
       }
     
       // Access feature flag and feture variables from Optimizely
-      let enabled = optimizely.isFeatureEnabled('alexaDemo', userId);
-      let optlyResponse = optimizely.getFeatureVariableString('alexaDemo', 'response', userId);
+
+      /*** 
+         FEATURE FLAGS GO HERE
+      ***/
       
+      let enabled = optimizelyClientInstance.isFeatureEnabled('personal_stylist', userId);
+      let response = optimizelyClientInstance.getFeatureVariableString('personal_stylist', 'response', userId);
+
       // Send back response with feature variable if applicable
       return handlerInput.responseBuilder
-        .speak(enabled ? optlyResponse : speechText)
+        .speak(enabled ? response : speechText)
         .addConfirmIntentDirective(handlerInput.requestEnvelope.request.intent)
         .getResponse();
 
@@ -88,7 +109,7 @@ const OptimizelyDemoHandler = {
     } else if ( status === "CONFIRMED" ){
       
       // Send tracking event to Optimizely
-      optimizely.track('respondedYes', userId);
+      optimizelyClientInstance.track('respondedYes', userId);
 
       return handlerInput.responseBuilder
         .speak(confirmationResponse)
@@ -99,7 +120,7 @@ const OptimizelyDemoHandler = {
     } else if ( status === "DENIED" ) {
 
       // Track event that the user rejected the recommendation
-      optimizely.track('respondedNo', userId);
+      optimizelyClientInstance.track('respondedNo', userId);
       
       return handlerInput.responseBuilder
         .speak(deniedResponse)
@@ -135,7 +156,6 @@ const CancelAndStopIntentHandler = {
   handle(handlerInput) {
     console.log('stop request USER ', userId);
     const speechText = 'Goodbye!';
-    //optimizely.track('completedSession', userId);
     return handlerInput.responseBuilder
       .speak(speechText)
       .withSimpleCard('Hello World', speechText)
