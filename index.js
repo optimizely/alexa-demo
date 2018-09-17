@@ -31,12 +31,11 @@ let initOptimizely = (projectID) => {
   // Returns promise to make GET request to Optimizely API
   return rp(options)
     .then( (datafile) => {
-      console.log('Grabbed Datafile from REST API');
-      console.log(datafile);
+      console.log('Here\s the datafile: ', datafile);
       optimizelyClientInstance = optimizelySDK.createInstance(
         { 
-          datafile: datafile, 
-          logger: defaultLogger.createLogger({ logLevel: 1 })
+          datafile: datafile, // Datafile returned from request
+          logger: defaultLogger.createLogger({ logLevel: 1 }) // Default logger provided by SDK
         }
       )
     })
@@ -49,13 +48,12 @@ let initOptimizely = (projectID) => {
 let confirmationResponse = "Great! I'll send you more information",
     deniedResponse = "Ok, maybe next time";
 
-// 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    let speechOutput = "Welcome to the worlds #1 store for your lil pupper at Opticon. Looking for a deal? Just ask for the daily deal!";
+    let speechOutput = "You've kicked off the Optimizely Full Stack demo. Say a phrase that's mapped to one of my intents to get a variation of a test.";
     return handlerInput.responseBuilder
       .speak(speechOutput)
       .reprompt(speechOutput)
@@ -71,7 +69,7 @@ const OptimizelyDemoHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'OptimizelyDemo';
   },
 
-  // Use async incase we need to get a new datafile!
+  // Use async incase we need to get a new datafile - this is Node after all!
   async handle(handlerInput) {
 
     // Set the userId as the session ID from the Alexa Skill
@@ -90,12 +88,10 @@ const OptimizelyDemoHandler = {
         await initOptimizely(process.env.PROJECT_ID);
       }
     
-      // Access feature flag and feture variables from Optimizely
-
       /*** 
-         FEATURE FLAGS GO HERE
+         OPTIMIZELY FEATURE FLAGS GO HERE
       ***/
-      
+
       let enabled = optimizelyClientInstance.isFeatureEnabled('personal_stylist', userId);
       let response = optimizelyClientInstance.getFeatureVariableString('personal_stylist', 'response', userId);
 
