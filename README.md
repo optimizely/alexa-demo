@@ -1,5 +1,6 @@
 # Overview
 ---
+![Optimizely Logo](https://images.ctfassets.net/zw48pl1isxmc/4WzcX9VVHOmwyg8ykkSeYq/e06717d6aaf30f01dc5da23408fdb671/optimizely-logo.svg)
 [Optimizely Full Stack](https://www.optimizely.com/products/full-stack/) enables developers to experiment across any application on new features to uncover insights using data to drive future iterations.
 
 In this repo we will walk through one potential way to use Optimizely Full Stack with AWS Lambda using an Alexa Skill as the demo.
@@ -84,7 +85,7 @@ This code sample follows option 3.
 - Click "Create Function"
 - Give your function a name and select Node 8.10 for the Runtime
 - Click "Designer" from the Lambda configuration panel to show the triggers 
-![triggers](https://cdn.optimizely.com/img/8785893177/6f55bdb11855469685347fe16c6ed5a8.png) 
+![triggers](https://cdn.optimizely.com/img/8785893177/7e0330224fdd40f782251b6f8b0377c3.png) 
 - From the triggers menu select Alexa Skills Kit and scroll down and paste your Alexa skill ID from before in the "Skill ID" field and click "Add"
 - Add an einvronment variable to your Lambda function called `PROJECT_ID` and paste your Optimizely Project ID for the project that you created your feature test in
 
@@ -124,6 +125,3 @@ Now that you've set this up, for future demos, all you need to do is...
 - Run ```gulp``` and re-upload the new zip file in AWS Lambda
 - Change the innvocation and any intent phrases in your Amazon Aleka Skills console
 - That's it!
-
-
-
